@@ -4,11 +4,6 @@
 
 ---
 
-## 🌟 Live Demo
-🔗 https://your-link.vercel.app *(update after deployment)*
-
----
-
 ## 📌 About Me
 I am a BTech Computer Science student passionate about building real-world web applications and solving problems through code. I have a strong interest in full-stack development, AI-based projects, and continuously improving my technical skills.
 
