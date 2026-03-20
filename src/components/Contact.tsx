@@ -38,13 +38,15 @@ const Contact = () => {
             </p>
             <div className="space-y-4">
               {[
-                { icon: Mail, label: "aksheyverma@email.com", href: "mailto:aksheyverma@email.com" },
-                { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/akshey-verma-53b22b22a/" },
-                { icon: Github, label: "GitHub Profile", href: "https://github.com/Akshey12198" },
+                { icon: Mail, label: " Email", href: "mailto:vermaaakshey@email.com", external: false },
+                { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/akshey-verma-53b22b22a/", external: true },
+                { icon: Github, label: "GitHub Profile", href: "https://github.com/Akshey12198", external: true },
               ].map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-lg glass-card flex items-center justify-center group-hover:scale-110 transition-transform">
