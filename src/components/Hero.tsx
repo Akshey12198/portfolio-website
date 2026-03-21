@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -37,21 +38,21 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <a
-            href="#projects"
+          <Link
+            to="/projects"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105 glow"
             style={{ background: "var(--gradient-primary)" }}
           >
             View Projects
             <ArrowDown className="w-4 h-4" />
-          </a>
-          <a
-            href="#contact"
+          </Link>
+          <Link
+            to="/contact"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium glass-card text-foreground transition-all duration-300 hover:scale-105 gradient-border"
           >
             <Mail className="w-4 h-4" />
             Contact Me
-          </a>
+          </Link>
         </motion.div>
       </div>
 

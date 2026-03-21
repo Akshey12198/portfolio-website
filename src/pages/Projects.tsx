@@ -1,15 +1,17 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const ProjectsPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Hero />
+      <div className="pt-20">
+        <Projects />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default ProjectsPage;

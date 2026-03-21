@@ -1,15 +1,17 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import Resume from "@/components/Resume";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const ResumePage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Hero />
+      <div className="pt-20">
+        <Resume />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default ResumePage;

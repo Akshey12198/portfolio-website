@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Resume", href: "#resume" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Skills", href: "/skills" },
+  { label: "Projects", href: "/projects" },
+  { label: "Experience", href: "/experience" },
+  { label: "Resume", href: "/resume" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -17,14 +18,14 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
       <div className="section-container flex items-center justify-between h-16">
-        <a href="#" className="font-display font-bold text-xl gradient-text">AV</a>
+        <Link to="/" className="font-display font-bold text-xl gradient-text">AV</Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.label} href={l.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
+            <Link key={l.label} to={l.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -45,9 +46,9 @@ const Navbar = () => {
           >
             <div className="section-container py-4 flex flex-col gap-4">
               {links.map((l) => (
-                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
+                <Link key={l.label} to={l.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
                   {l.label}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>
