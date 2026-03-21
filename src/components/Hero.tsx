@@ -1,8 +1,23 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Hero = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setMousePosition({ x: x * 30, y: y * 30 });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePosition({ x: 0, y: 0 });
+    setIsHovering(false);
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,34 +51,83 @@ const Hero = () => {
       </div>
 
       <div className="section-container relative z-10 text-center">
-        {/* Profile Picture */}
+        {/* Profile Picture with 3D Effect */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-10 flex justify-center"
+          style={{ perspective: "1200px" }}
         >
           <motion.div
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={handleMouseLeave}
             animate={{ 
-              boxShadow: [
-                "0 0 20px rgba(79, 172, 254, 0.3)",
-                "0 0 40px rgba(79, 172, 254, 0.6)",
-                "0 0 20px rgba(79, 172, 254, 0.3)"
-              ]
+              rotateX: isHovering ? mousePosition.y : 0,
+              rotateY: isHovering ? -mousePosition.x : 0,
+              scale: isHovering ? 1.1 : 1,
+              boxShadow: isHovering
+                ? [
+                    "0 20px 60px rgba(79, 172, 254, 0.8)",
+                    "0 0 40px rgba(79, 172, 254, 0.6)",
+                  ]
+                : [
+                    "0 0 20px rgba(79, 172, 254, 0.3)",
+                    "0 0 40px rgba(79, 172, 254, 0.6)",
+                    "0 0 20px rgba(79, 172, 254, 0.3)"
+                  ]
             }}
-            transition={{ duration: 3, repeat: Infinity }}
+            transition={{ 
+              type: "spring",
+              stiffness: 400,
+              damping: 60,
+            }}
             className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-2xl cursor-pointer group flex-shrink-0"
           >
-            <img
-              src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
-              alt="Akshey Verma"
-              className="w-full h-full object-contain bg-gradient-to-b from-muted to-muted/50"
+            {/* Rotating background glow */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: "conic-gradient(from 0deg, transparent 0%, rgba(79, 172, 254, 0.2) 50%, transparent 100%)",
+                opacity: isHovering ? 1 : 0.5,
+              }}
             />
+
+            {/* Image container with 3D effect */}
+            <motion.div
+              className="relative w-full h-full"
+              animate={{
+                scale: isHovering ? 1.05 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
+                alt="Akshey Verma"
+                className="w-full h-full object-contain bg-gradient-to-b from-muted to-muted/50"
+              />
+            </motion.div>
+
             {/* Overlay on hover */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100"
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
+            />
+
+            {/* Light reflection effect */}
+            <motion.div
+              className="absolute inset-0 rounded-full"
+              animate={{
+                opacity: isHovering ? [0, 0.3, 0] : 0,
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{
+                background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 50%)",
+              }}
             />
           </motion.div>
         </motion.div>
