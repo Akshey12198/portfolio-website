@@ -41,7 +41,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 flex justify-center"
+          className="mb-10 flex justify-center"
         >
           <motion.div
             animate={{ 
@@ -52,16 +52,16 @@ const Hero = () => {
               ]
             }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-2 ring-primary/50 cursor-pointer group"
+            className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-2xl cursor-pointer group flex-shrink-0"
           >
             <img
               src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
               alt="Akshey Verma"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
             {/* Overlay on hover */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100"
+              className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             />
