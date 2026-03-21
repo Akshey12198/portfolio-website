@@ -59,7 +59,7 @@ const Navbar = () => {
         >
           {/* Profile Picture */}
           <motion.div
-            className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/50 flex-shrink-0"
+            className="w-10 h-10 rounded-md overflow-hidden flex-shrink-0"
             whileHover={{ scale: 1.15 }}
             transition={{ duration: 0.3 }}
           >
