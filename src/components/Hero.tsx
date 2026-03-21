@@ -83,7 +83,7 @@ const Hero = () => {
               stiffness: 400,
               damping: 60,
             }}
-            className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden ring-4 ring-primary/40 shadow-2xl cursor-pointer group flex-shrink-0"
+            className="relative w-40 h-40 md:w-56 md:h-56 rounded-md overflow-hidden shadow-2xl cursor-pointer group flex-shrink-0"
           >
             {/* Rotating background glow */}
             <motion.div
