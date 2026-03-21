@@ -55,7 +55,21 @@ const Navbar = () => {
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-3"
         >
+          {/* Profile Picture */}
+          <motion.div
+            className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/50 flex-shrink-0"
+            whileHover={{ scale: 1.15 }}
+            transition={{ duration: 0.3 }}
+          >
+            <img
+              src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
+              alt="Akshey Verma"
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
+
           <Link to="/" className="font-display font-bold text-xl gradient-text hover:opacity-80 transition-opacity">
             AV
           </Link>
