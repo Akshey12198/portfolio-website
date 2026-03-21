@@ -36,6 +36,38 @@ const Hero = () => {
       </div>
 
       <div className="section-container relative z-10 text-center">
+        {/* Profile Picture */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8 flex justify-center"
+        >
+          <motion.div
+            animate={{ 
+              boxShadow: [
+                "0 0 20px rgba(79, 172, 254, 0.3)",
+                "0 0 40px rgba(79, 172, 254, 0.6)",
+                "0 0 20px rgba(79, 172, 254, 0.3)"
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-2 ring-primary/50 cursor-pointer group"
+          >
+            <img
+              src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
+              alt="Akshey Verma"
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay on hover */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100"
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
+        </motion.div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
