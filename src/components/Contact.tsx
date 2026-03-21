@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Linkedin, Github, Send, Phone } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -39,6 +39,7 @@ const Contact = () => {
             <div className="space-y-4">
               {[
                 { icon: Mail, label: " Email", href: "mailto:vermaaakshey@gmail.com", external: false },
+                { icon: Phone, label: "Phone", href: "tel:9758109292", external: false },
                 { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/akshey-verma-53b22b22a/", external: true },
                 { icon: Github, label: "GitHub Profile", href: "https://github.com/Akshey12198", external: true },
               ].map((link) => (
