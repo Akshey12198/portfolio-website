@@ -61,7 +61,7 @@ const Hero = () => {
             />
             {/* Overlay on hover */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
+              className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100"
               whileHover={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
             />
