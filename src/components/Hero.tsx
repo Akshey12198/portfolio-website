@@ -51,7 +51,7 @@ const Hero = () => {
             <img
               src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
               alt="Akshey Verma"
-              className="w-full h-full object-contain bg-gradient-to-b from-muted to-muted/50"
+              className="w-full h-full object-contain"
             />
           </motion.div>
         </motion.div>
