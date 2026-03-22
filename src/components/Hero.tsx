@@ -1,15 +1,22 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import { Download, Linkedin, Github, Award, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const socialLinks = [
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Award, href: "#", label: "Portfolio" },
+    { icon: Mail, href: "#", label: "Email" },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
@@ -27,124 +34,143 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background effects */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background effects - positioned around the image */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-secondary/10 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-accent/5 blur-[120px] animate-float-slow" />
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 rounded-full bg-primary/20 blur-[120px] animate-pulse-glow" />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-accent/15 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
       </div>
 
-      <div className="section-container relative z-10 text-center">
-        {/* Profile Picture */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-10 flex justify-center"
-        >
+      <div className="section-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[70vh]">
+          {/* Left Column - Text Content */}
           <motion.div
-            className="w-40 h-40 md:w-56 md:h-56 rounded-md overflow-hidden shadow-2xl cursor-pointer flex-shrink-0"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-4 space-y-6"
           >
-            <img
-              src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
-              alt="Akshey Verma"
-              className="w-full h-full object-contain"
-            />
-          </motion.div>
-        </motion.div>
+            <motion.div variants={itemVariants}>
+              <p className="text-accent text-sm md:text-base font-body tracking-wider uppercase">
+                Hello, I'm
+              </p>
+            </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-4"
-        >
-          <motion.p 
-            variants={itemVariants}
-            className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4 font-body"
-          >
-            Welcome to my portfolio
-          </motion.p>
-
-          <motion.h1 
-            variants={itemVariants}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold font-display mb-4"
-          >
-            <motion.span 
-              className="gradient-text block"
-              animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
-              transition={{ duration: 8, repeat: Infinity }}
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground leading-tight"
             >
-              Akshey
-            </motion.span>{" "}
-            <span className="text-foreground">Verma</span>
-          </motion.h1>
+              Akshey <br /> Verma
+            </motion.h1>
 
-          <motion.p 
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-primary font-display font-medium mb-4"
-          >
-            Full Stack Developer | MERN Stack Enthusiast
-          </motion.p>
+            <motion.div variants={itemVariants} className="space-y-2">
+              <p className="text-accent text-sm md:text-base font-body">Creative</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display">
+                <span className="text-primary">Developer</span>
+                <br />
+                <span className="text-foreground">& Designer</span>
+              </h2>
+            </motion.div>
 
-          <motion.p 
-            variants={itemVariants}
-            className="text-muted-foreground text-lg max-w-xl mx-auto mb-10"
-          >
-            Building real-world scalable web applications with modern technologies
-          </motion.p>
-
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link
-              to="/projects"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-110 glow group overflow-hidden relative"
-              style={{ background: "var(--gradient-primary)" }}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                View Projects
-                <motion.div
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <ArrowDown className="w-4 h-4" />
-                </motion.div>
-              </span>
-            </Link>
-            
+            {/* Social Icons - Left Side */}
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              variants={itemVariants}
+              className="flex gap-4 pt-8"
             >
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium glass-card text-foreground transition-all duration-300 gradient-border hover:bg-muted"
-              >
-                <Mail className="w-4 h-4" />
-                Contact Me
-              </Link>
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="p-3 rounded-lg bg-muted hover:bg-primary/20 text-primary transition-colors duration-300"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </motion.a>
+                );
+              })}
             </motion.div>
           </motion.div>
-        </motion.div>
+
+          {/* Center Column - Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="lg:col-span-4 flex justify-center order-first lg:order-none -mt-8 lg:mt-0"
+          >
+            <div className="relative">
+              {/* Glow background */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 blur-2xl" />
+              
+              {/* Profile Image */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+                className="relative rounded-2xl overflow-hidden shadow-2xl w-80 h-96 md:w-96 md:h-[480px] lg:w-80 lg:h-96"
+              >
+                <img
+                  src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF copy.png"
+                  alt="Akshey Verma"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Resume Button & Info */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-4 flex flex-col items-center lg:items-start gap-8"
+          >
+            <motion.div variants={itemVariants}>
+              <Link
+                to="/resume"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-display font-medium text-foreground border border-primary/30 hover:bg-primary/10 transition-all duration-300 hover:border-primary/60"
+              >
+                <Download className="w-4 h-4" />
+                RESUME
+              </Link>
+            </motion.div>
+
+            {/* Additional info */}
+            <motion.div
+              variants={itemVariants}
+              className="text-center lg:text-left space-y-3 hidden lg:block"
+            >
+              <p className="text-sm text-muted-foreground font-body">
+                Full Stack Developer & Creative Designer
+              </p>
+              <p className="text-sm text-muted-foreground font-body">
+                Building amazing web experiences with modern technologies
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Animated scroll indicator */}
+      {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 2, repeat: Infinity }}
+        <svg
+          className="w-6 h-6 text-muted-foreground animate-bounce"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          <ArrowDown className="w-5 h-5 text-muted-foreground" />
-        </motion.div>
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
       </motion.div>
     </section>
   );

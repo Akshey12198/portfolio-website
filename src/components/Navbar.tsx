@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@/context/ThemeContext";
 
 const links = [
-  { label: "About", href: "/about" },
-  { label: "Skills", href: "/skills" },
+  { label: "About Us", href: "/about" },
   { label: "Projects", href: "/projects" },
-  { label: "Experience", href: "/experience" },
-  { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -70,8 +67,8 @@ const Navbar = () => {
             />
           </motion.div>
 
-          <Link to="/" className="font-display font-bold text-xl gradient-text hover:opacity-80 transition-opacity">
-            AV
+          <Link to="/" className="font-display font-bold text-lg text-foreground hover:text-primary transition-colors">
+            Akshey
           </Link>
         </motion.div>
 
