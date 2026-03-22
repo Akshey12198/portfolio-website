@@ -1,14 +1,22 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Send, Phone } from "lucide-react";
+import { Linkedin, Github, Mail, Copy, Check } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [copied, setCopied] = useState(false);
+  const email = "vermaaakshey@gmail.com";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // placeholder
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
+
+  const socialLinks = [
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/akshey-verma-53b22b22a/" },
+    { icon: Github, label: "GitHub", href: "https://github.com/Akshey12198" },
+    { icon: Mail, label: "Email", href: `mailto:${email}` },
+  ];
 
   return (
     <section id="contact" className="py-24">
@@ -18,86 +26,88 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-16 max-w-2xl"
         >
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-2 font-display">Contact</p>
-          <h2 className="text-3xl md:text-4xl font-bold font-display">
-            Let's <span className="gradient-text">connect</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
+            Contact Me
           </h2>
+          <p className="text-muted-foreground text-lg">
+            Tell me about your next project
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              I'm always open to discussing new projects, internships, or opportunities. Feel free to reach out!
-            </p>
-            <div className="space-y-4">
-              {[
-                { icon: Mail, label: " Email", href: "mailto:vermaaakshey@gmail.com", external: false },
-                { icon: Phone, label: "Phone", href: "tel:9758109292", external: false },
-                { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/akshey-verma-53b22b22a/", external: true },
-                { icon: Github, label: "GitHub Profile", href: "https://github.com/Akshey12198", external: true },
-              ].map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-lg glass-card flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <link.icon className="w-4 h-4" />
-                  </div>
-                  <span className="text-sm">{link.label}</span>
-                </a>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.form
-            onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-4"
-          >
-            <input
-              type="text"
-              placeholder="Your Name"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-            />
-            <textarea
-              placeholder="Your Message"
-              rows={5}
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm resize-none"
-            />
-            <button
-              type="submit"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105 glow"
-              style={{ background: "var(--gradient-primary)" }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-2xl"
+        >
+          {/* Email Section */}
+          <div className="mb-12">
+            <h3 className="text-xl font-display font-semibold mb-6 text-foreground">
+              Email
+            </h3>
+            <motion.button
+              onClick={handleCopyEmail}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="group inline-flex items-center gap-3 px-6 py-4 rounded-lg border border-primary/30 hover:bg-primary/10 transition-all duration-300 hover:border-primary/60 w-full sm:w-auto"
             >
-              Send Message
-              <Send className="w-4 h-4" />
-            </button>
-          </motion.form>
-        </div>
+              <Mail className="w-5 h-5 text-primary" />
+              <span className="font-body text-sm text-foreground">{email}</span>
+              <motion.div
+                animate={{ rotate: copied ? 360 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="ml-auto"
+              >
+                {copied ? (
+                  <Check className="w-4 h-4 text-primary" />
+                ) : (
+                  <Copy className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                )}
+              </motion.div>
+            </motion.button>
+          </div>
+
+          {/* Location & Social Section */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-display font-semibold mb-4 text-foreground">
+                Location
+              </h3>
+              <p className="text-muted-foreground">India</p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-display font-semibold mb-4 text-foreground">
+                Social Media
+              </h3>
+              <p className="text-muted-foreground mb-4 text-sm">
+                Write Me & We'll Talk
+              </p>
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <motion.a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="p-3 rounded-lg border border-primary/30 hover:bg-primary/10 text-primary transition-all duration-300 hover:border-primary/60"
+                      aria-label={social.label}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </motion.a>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

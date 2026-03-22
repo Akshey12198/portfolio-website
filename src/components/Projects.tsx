@@ -1,26 +1,35 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Job Vacancy Portal",
-    description: "A full-featured job listing and application platform with user authentication, job posting, and search functionality.",
-    tech: ["HTML", "CSS", "JavaScript", "Node.js"],
+    number: "01",
+    type: "Web",
+    title: "Barbershop Website",
+    technologies: "HTML, CSS, JavaScript, Gsap, Swiper Js and Figma.",
   },
   {
-    title: "Social Media Application",
-    description: "A full stack social media platform with user profiles, posts, likes, comments, and real-time interactions.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
+    number: "02",
+    type: "Design",
+    title: "Interface Design For Ice Cream Shop",
+    technologies: "HTML, CSS, JavaScript, Gsap, Swiper Js and Figma.",
   },
   {
-    title: "Bookstore Project",
-    description: "An online bookstore with catalog browsing, cart management, and a clean user interface for book discovery.",
-    tech: ["React", "Node.js", "MongoDB"],
+    number: "03",
+    type: "Web",
+    title: "SEO For Coffee Websites",
+    technologies: "HTML, CSS, JavaScript, Gsap, Swiper Js and Figma.",
   },
   {
-    title: "AI Stock Trading Bot",
-    description: "An intelligent trading bot that analyzes market data and makes automated trading decisions using AI algorithms.",
-    tech: ["Python", "AI/ML", "APIs"],
+    number: "04",
+    type: "Design",
+    title: "Web Design For Restaurant",
+    technologies: "HTML, CSS, JavaScript, Gsap, Swiper Js and Figma.",
+  },
+  {
+    number: "05",
+    type: "Web",
+    title: "Fast Food Website",
+    technologies: "HTML, CSS, JavaScript, Gsap, Swiper Js and Figma.",
   },
 ];
 
@@ -56,22 +65,17 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-16"
         >
-          <motion.p 
-            className="text-primary text-sm tracking-[0.3em] uppercase mb-2 font-display"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Projects
-          </motion.p>
-          <h2 className="text-3xl md:text-4xl font-bold font-display">
-            Featured <span className="gradient-text">work</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-display leading-tight">
+            I Make Incredible
+            <br />
+            <span className="text-primary">Projects</span>
           </h2>
         </motion.div>
 
         <motion.div 
-          className="grid md:grid-cols-2 gap-6"
+          className="space-y-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -79,71 +83,78 @@ const Projects = () => {
         >
           {projects.map((project, i) => (
             <motion.div
-              key={project.title}
+              key={project.number}
               variants={cardVariants}
-              whileHover={{ 
-                y: -10,
-                transition: { duration: 0.3 }
-              }}
+              whileHover={{ x: 10 }}
               className="group"
             >
               <motion.div
-                className="glass-card rounded-xl p-6 h-full relative overflow-hidden"
-                whileHover={{ scale: 1.02 }}
+                className="glass-card rounded-lg p-8 relative overflow-hidden border border-border/50"
+                whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.3 }}
               >
                 {/* Background glow on hover */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.3 }}
                 />
 
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <motion.h3 
-                      className="font-display font-semibold text-xl text-foreground group-hover:text-primary transition-colors flex-1"
+                <div className="relative z-10 grid grid-cols-12 gap-8 items-center">
+                  {/* Number */}
+                  <motion.div
+                    className="col-span-1"
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                  >
+                    <h3 className="text-4xl font-bold text-primary/30 font-display">
+                      {project.number}
+                    </h3>
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="col-span-10 space-y-2">
+                    <motion.p
+                      className="text-sm text-muted-foreground uppercase tracking-wider font-medium"
+                      whileHover={{ color: "var(--accent)" }}
+                    >
+                      {project.type}
+                    </motion.p>
+                    <motion.h4
+                      className="text-2xl md:text-3xl font-bold font-display text-foreground group-hover:text-primary transition-colors"
                       whileHover={{ x: 4 }}
                     >
                       {project.title}
-                    </motion.h3>
-                    <motion.div 
-                      className="flex gap-2 text-muted-foreground"
-                      whileHover={{ scale: 1.1 }}
+                    </motion.h4>
+                    <motion.p
+                      className="text-muted-foreground text-sm leading-relaxed pt-2"
+                      initial={{ opacity: 0.7 }}
+                      whileHover={{ opacity: 1 }}
                     >
-                      <motion.button
-                        className="hover:text-foreground cursor-pointer transition-colors"
-                        whileHover={{ rotate: 10, scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Github className="w-4 h-4" />
-                      </motion.button>
-                      <motion.button
-                        className="hover:text-foreground cursor-pointer transition-colors"
-                        whileHover={{ rotate: -10, scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </motion.button>
-                    </motion.div>
+                      <span className="font-semibold text-foreground">Technologies used:</span>{" "}
+                      {project.technologies}
+                    </motion.p>
                   </div>
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t, idx) => (
-                      <motion.span
-                        key={t}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.05, duration: 0.3 }}
-                        whileHover={{ scale: 1.1 }}
-                        className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium cursor-pointer transition-colors hover:bg-primary/20"
-                      >
-                        {t}
-                      </motion.span>
-                    ))}
-                  </div>
+                  {/* Arrow */}
+                  <motion.div
+                    className="col-span-1 text-right"
+                    whileHover={{ x: 5 }}
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <svg
+                      className="w-6 h-6 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </motion.div>
                 </div>
               </motion.div>
             </motion.div>
