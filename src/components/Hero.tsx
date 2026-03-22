@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
-import { Download, Linkedin, Github, Award, Mail } from "lucide-react";
+import { Download, Linkedin, Github, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Award, href: "#", label: "Portfolio" },
-    { icon: Mail, href: "#", label: "Email" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/akshey-verma-53b22b22a/", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/Akshey12198", label: "GitHub" },
+    { icon: Mail, href: "mailto:vermaaakshey@gmail.com", label: "Email" },
   ];
 
   const containerVariants = {
@@ -79,10 +78,13 @@ const Hero = () => {
             >
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
+                const isExternal = social.href.startsWith("http");
                 return (
                   <motion.a
                     key={index}
                     href={social.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="p-3 rounded-lg bg-muted hover:bg-primary/20 text-primary transition-colors duration-300"
