@@ -23,7 +23,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-primary/30"
+                className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl"
               >
                 <img 
                   src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
@@ -31,11 +31,6 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                 />
               </motion.div>
-              <motion.div
-                className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-primary to-secondary blur-xl opacity-30"
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
             </div>
           </motion.div>
 
