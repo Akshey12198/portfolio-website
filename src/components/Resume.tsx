@@ -43,7 +43,7 @@ const Resume = () => {
                 <a
                   href="/Akshey_Verma_Resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-display font-medium text-sm text-primary-foreground transition-all duration-300 hover:scale-105 glow"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-display font-medium text-sm text-primary-foreground transition-all duration-300 hover:scale-105"
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <Download className="w-4 h-4" />
@@ -53,7 +53,7 @@ const Resume = () => {
                   href="/Akshey_Verma_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-display font-medium text-sm glass-card text-foreground transition-all duration-300 hover:scale-105 gradient-border"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-display font-medium text-sm glass-card text-foreground transition-all duration-300 hover:scale-105"
                 >
                   <Eye className="w-4 h-4" />
                   View Resume

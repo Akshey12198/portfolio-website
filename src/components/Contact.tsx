@@ -87,7 +87,7 @@ const Contact = () => {
             />
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105 glow"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105"
               style={{ background: "var(--gradient-primary)" }}
             >
               Send Message
