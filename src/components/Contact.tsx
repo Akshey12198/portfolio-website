@@ -38,7 +38,7 @@ const Contact = () => {
             </p>
             <div className="space-y-4">
               {[
-                { icon: Mail, label: "aksheyverma@email.com", href: "mailto:aksheyverma@email.com" },
+                { icon: Mail, label: "aksheyverma@email.com", href: "mailto:vermaaakshey@gmail.com" },
                 { icon: Linkedin, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/akshey-verma-53b22b22a/" },
                 { icon: Github, label: "GitHub Profile", href: "https://github.com/Akshey12198" },
               ].map((link) => (

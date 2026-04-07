@@ -17,7 +17,14 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
       <div className="section-container flex items-center justify-between h-16">
-        <a href="#" className="font-display font-bold text-xl gradient-text">AV</a>
+        <div className="flex items-center gap-3">
+          <img 
+            src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
+            alt="Akshey Verma" 
+            className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/50"
+          />
+          <a href="#" className="font-display font-bold text-xl gradient-text">AV</a>
+        </div>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
