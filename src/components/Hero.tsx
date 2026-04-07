@@ -3,79 +3,76 @@ import { ArrowDown, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16">
       {/* Background effects */}
       <div className="absolute inset-0">
       </div>
 
-      <div className="section-container relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Profile Image */}
+      <div className="section-container relative z-10 flex flex-col items-center">
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex justify-center md:justify-start"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="w-32 h-32 rounded-lg overflow-hidden mb-8"
           >
-            <div className="relative">
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="relative w-80 h-80 rounded-lg overflow-hidden"
-              >
-                <img 
-                  src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
-                  alt="Akshey Verma" 
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            </div>
+            <img 
+              src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
+              alt="Akshey Verma" 
+              className="w-full h-full object-cover"
+            />
           </motion.div>
+        </motion.div>
 
-          {/* Right side - Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+        {/* Text Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="flex flex-col items-center text-center max-w-2xl space-y-4"
+        >
+          <p className="text-muted-foreground text-xs tracking-[0.2em] uppercase font-body">
+            Welcome to my portfolio
+          </p>
+          <h1 className="text-6xl md:text-7xl font-bold font-display">
+            <span className="gradient-text">Akshey</span>{" "}
+            <span className="text-foreground">Verma</span>
+          </h1>
+          <p className="text-lg md:text-xl text-primary font-display font-medium">
+            Full Stack Developer | MERN Stack Enthusiast
+          </p>
+          <p className="text-muted-foreground text-base md:text-lg">
+            Building real-world scalable web applications
+          </p>
+        </motion.div>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row gap-4 mt-8"
+        >
+          <a
+            href="#projects"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105"
+            style={{ background: "var(--gradient-primary)" }}
           >
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-4 font-body">
-              Welcome to my portfolio
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold font-display mb-4">
-              <span className="gradient-text">Akshey</span>{" "}
-              <span className="text-foreground">Verma</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-primary font-display font-medium mb-4">
-              Full Stack Developer | MERN Stack Enthusiast
-            </p>
-            <p className="text-muted-foreground text-lg max-w-xl mb-10">
-              Building real-world scalable web applications
-            </p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105"
-                style={{ background: "var(--gradient-primary)" }}
-              >
-                View Projects
-                <ArrowDown className="w-4 h-4" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium glass-card text-foreground transition-all duration-300 hover:scale-105"
-              >
-                <Mail className="w-4 h-4" />
-                Contact Me
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
+            View Projects
+            <ArrowDown className="w-4 h-4" />
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium glass-card text-foreground transition-all duration-300 hover:scale-105 border border-border"
+          >
+            <Mail className="w-4 h-4" />
+            Contact Me
+          </a>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
