@@ -62,7 +62,7 @@ const Hero = () => {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105 glow"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium text-primary-foreground transition-all duration-300 hover:scale-105"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 View Projects
@@ -70,7 +70,7 @@ const Hero = () => {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium glass-card text-foreground transition-all duration-300 hover:scale-105 gradient-border"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg font-display font-medium glass-card text-foreground transition-all duration-300 hover:scale-105"
               >
                 <Mail className="w-4 h-4" />
                 Contact Me
