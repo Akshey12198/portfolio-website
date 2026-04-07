@@ -18,12 +18,12 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="w-32 h-32 rounded-lg overflow-hidden mb-8"
+            className="w-48 rounded-lg mb-8"
           >
             <img 
               src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
               alt="Akshey Verma" 
-              className="w-full h-full object-cover"
+              className="w-full h-auto object-contain mx-auto"
             />
           </motion.div>
         </motion.div>
