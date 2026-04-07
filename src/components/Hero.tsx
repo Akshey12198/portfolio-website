@@ -14,18 +14,15 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8"
         >
-          <motion.div
+          <motion.img
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="w-48 rounded-lg mb-8"
-          >
-            <img 
-              src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
-              alt="Akshey Verma" 
-              className="w-full h-auto object-contain mx-auto"
-            />
-          </motion.div>
+            src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
+            alt="Akshey Verma" 
+            className="max-w-sm w-full h-auto object-contain rounded-lg"
+          />
         </motion.div>
 
         {/* Text Content */}
