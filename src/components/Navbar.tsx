@@ -21,7 +21,7 @@ const Navbar = () => {
           <img 
             src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
             alt="Akshey Verma" 
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-10 h-auto rounded-full object-contain"
           />
           <a href="#" className="font-display font-bold text-xl gradient-text">AV</a>
         </div>
