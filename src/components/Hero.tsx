@@ -21,7 +21,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl"
+                className="relative w-80 h-80 rounded-lg overflow-hidden"
               >
                 <img 
                   src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
