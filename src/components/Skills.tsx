@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const skills = [
   { category: "Languages", items: [
-    { name: "JavaScript", level: 90 }, { name: "TypeScript", level: 80 }, { name: "Java", level: 70 }, { name: "Flutter", level: 65 }
+    { name: "JavaScript", level: 70 }, { name: "TypeScript", level: 60 }, { name: "Java", level: 70 }, { name: "Flutter", level: 65 }
   ]},
   { category: "Frontend", items: [
     { name: "React.js", level: 88 }, { name: "Next.js", level: 75 }, { name: "HTML/CSS", level: 92 }, { name: "Tailwind CSS", level: 85 }, { name: "Bootstrap", level: 80 }
@@ -11,13 +11,13 @@ const skills = [
     { name: "Node.js", level: 85 }, { name: "Express.js", level: 83 }, { name: "RESTful APIs", level: 85 }, { name: "Authentication", level: 78 }
   ]},
   { category: "Databases", items: [
-    { name: "MongoDB", level: 80 }, { name: "PostgreSQL", level: 72 }
+    { name: "MongoDB", level: 80 }, { name: "PostgreSQL", level: 60 }
   ]},
   { category: "DevOps & CI/CD", items: [
-    { name: "Git & GitHub", level: 88 }, { name: "Jenkins", level: 65 }, { name: "CI/CD", level: 68 }
+    { name: "Git & GitHub", level: 80 }, { name: "Jenkins", level: 40 }, { name: "CI/CD", level: 60 }
   ]},
   { category: "Testing & Tools", items: [
-    { name: "Postman", level: 85 }, { name: "Selenium WebDriver", level: 65 }, { name: "VS Code", level: 90 }, { name: "Figma", level: 70 }
+    { name: "Postman", level: 50 }, { name: "Selenium WebDriver", level: 50 }, { name: "VS Code", level: 90 }, { name: "Figma", level: 60 }
   ]},
 ];
 

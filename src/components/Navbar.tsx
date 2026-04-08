@@ -35,10 +35,10 @@ const Navbar = () => {
           ))}
           <a 
             href="tel:9758109292"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-primary hover:text-primary/80 transition-colors font-medium border border-primary/30 hover:border-primary/60"
+            className="flex items-center justify-center w-10 h-10 rounded-lg text-primary hover:text-primary/80 transition-colors border border-primary/30 hover:border-primary/60"
+            title="Call me"
           >
-            <Phone className="w-4 h-4" />
-            9758109292
+            <Phone className="w-5 h-5" />
           </a>
         </div>
 
@@ -63,14 +63,6 @@ const Navbar = () => {
                   {l.label}
                 </a>
               ))}
-              <a 
-                href="tel:9758109292"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-primary hover:text-primary/80 transition-colors font-medium border border-primary/30 hover:border-primary/60"
-              >
-                <Phone className="w-4 h-4" />
-                9758109292
-              </a>
             </div>
           </motion.div>
         )}
