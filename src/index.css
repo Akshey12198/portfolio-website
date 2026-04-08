@@ -6,41 +6,41 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 15 23% 11%;
 
-    --card: 0 0% 6.7%;
-    --card-foreground: 0 0% 98%;
+    --card: 217 32% 98%;
+    --card-foreground: 15 23% 11%;
 
-    --popover: 0 0% 6.7%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 217 32% 98%;
+    --popover-foreground: 15 23% 11%;
 
-    --primary: 235 97% 67%;
+    --primary: 216 98% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 235 97% 67%;
+    --secondary: 217 92% 59%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 7%;
-    --muted-foreground: 240 5% 63%;
+    --muted: 217 32% 98%;
+    --muted-foreground: 217 33% 43%;
 
-    --accent: 256 100% 79%;
+    --accent: 216 98% 52%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 10%;
-    --input: 0 0% 10%;
-    --ring: 235 97% 67%;
+    --border: 216 98% 52%;
+    --input: 217 32% 98%;
+    --ring: 216 98% 52%;
 
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(235 97% 67%), hsl(256 100% 79%));
-    --gradient-accent: linear-gradient(135deg, hsl(256 100% 79%), hsl(235 97% 67%));
-    --gradient-glow: linear-gradient(135deg, hsl(235 97% 67% / 0.1), hsl(256 100% 79% / 0.1));
-    --glass-bg: hsl(0 0% 7% / 0.5);
-    --glass-border: hsl(235 97% 67% / 0.1);
+    --gradient-primary: linear-gradient(90deg, hsl(216 98% 52%), hsl(217 92% 59%));
+    --gradient-accent: linear-gradient(90deg, hsl(217 92% 59%), hsl(216 98% 52%));
+    --gradient-glow: linear-gradient(135deg, hsl(216 98% 52% / 0.1), hsl(217 92% 59% / 0.1));
+    --glass-bg: hsl(217 32% 98% / 0.6);
+    --glass-border: hsl(216 98% 52% / 0.15);
 
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;

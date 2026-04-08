@@ -15,7 +15,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#E2E8F0] shadow-sm">
       <div className="section-container flex items-center justify-between h-16">
         <div className="flex items-center gap-3">
           <img 
@@ -29,13 +29,13 @@ const Navbar = () => {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.label} href={l.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
+            <a key={l.label} href={l.href} className="text-sm text-[#64748B] hover:text-[#2563EB] transition-colors font-medium">
               {l.label}
             </a>
           ))}
           <a 
             href="tel:9758109292"
-            className="flex items-center justify-center w-10 h-10 rounded-lg text-primary hover:text-primary/80 transition-colors border border-primary/30 hover:border-primary/60"
+            className="flex items-center justify-center w-10 h-10 rounded-lg text-[#2563EB] hover:bg-[#F8FAFC] transition-all duration-300 border border-[#2563EB]/20"
             title="Call me"
           >
             <Phone className="w-5 h-5" />
@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
+        <button onClick={() => setOpen(!open)} className="md:hidden text-[#0F172A]">
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
@@ -55,11 +55,11 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden glass-card border-t border-border/50"
+            className="md:hidden overflow-hidden bg-white border-t border-[#E2E8F0]"
           >
             <div className="section-container py-4 flex flex-col gap-4">
               {links.map((l) => (
-                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
+                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-sm text-[#64748B] hover:text-[#2563EB] transition-colors font-medium">
                   {l.label}
                 </a>
               ))}
