@@ -26,44 +26,44 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-20 md:py-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12"
+          className="mb-16"
         >
-          <p className="text-primary text-sm tracking-[0.3em] uppercase mb-2 font-display">Projects</p>
-          <h2 className="text-3xl md:text-4xl font-bold font-display">
-            Featured <span className="gradient-text">work</span>
+          <p className="text-[#2563EB] dark:text-[#6366F1] text-xs tracking-[0.15em] uppercase mb-3 font-body font-medium">Projects</p>
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-[#0F172A] dark:text-[#FAFAFA]">
+            Work I've built
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card rounded-xl p-6 group hover:scale-[1.02] transition-all duration-300"
+              transition={{ duration: 0.5, delay: i * 0.05 }}
+              className="card-minimal group"
             >
               <div className="flex items-start justify-between mb-4">
-                <h3 className="font-display font-semibold text-xl text-foreground group-hover:text-primary transition-colors">
+                <h3 className="font-display font-semibold text-lg text-foreground group-hover:text-[#2563EB] dark:group-hover:text-[#6366F1] transition-colors">
                   {project.title}
                 </h3>
-                <div className="flex gap-2 text-muted-foreground">
-                  <Github className="w-4 h-4 hover:text-foreground cursor-pointer transition-colors" />
-                  <ExternalLink className="w-4 h-4 hover:text-foreground cursor-pointer transition-colors" />
+                <div className="flex gap-2 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Github className="w-4 h-4 cursor-pointer hover:text-foreground transition-colors" />
+                  <ExternalLink className="w-4 h-4 cursor-pointer hover:text-foreground transition-colors" />
                 </div>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5">{project.description}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((t) => (
-                  <span key={t} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">
+                  <span key={t} className="text-xs px-2 py-1 rounded-md bg-[#2563EB]/10 dark:bg-[#6366F1]/10 text-[#2563EB] dark:text-[#6366F1] font-medium">
                     {t}
                   </span>
                 ))}

@@ -45,50 +45,54 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#0A0A0A] border-b border-[#E2E8F0] dark:border-[#1F2937] shadow-sm transition-colors duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#0A0A0A]/80 backdrop-blur-sm border-b border-[#E2E8F0]/40 dark:border-[#1F2937]/40 transition-colors duration-300">
       <div className="section-container flex items-center justify-between h-16">
         <div className="flex items-center gap-3">
           <img 
             src="/BCA58ABF-7EFD-4758-A8EB-901D5A9F20AF.png" 
             alt="Akshey Verma" 
-            className="w-10 h-auto rounded-full object-contain"
+            className="w-9 h-auto rounded-full object-contain"
           />
-          <a href="#" className="font-display font-bold text-xl gradient-text">AV</a>
+          <a href="#" className="font-display font-semibold text-lg text-[#0F172A] dark:text-[#FAFAFA]">AV</a>
         </div>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-1">
           {links.map((l) => (
-            <a key={l.label} href={l.href} className="text-sm text-[#64748B] dark:text-[#A1A1AA] hover:text-[#2563EB] dark:hover:text-[#6366F1] transition-colors font-medium">
+            <a key={l.label} href={l.href} className="px-3 py-2 text-sm text-[#64748B] dark:text-[#A1A1AA] hover:text-[#0F172A] dark:hover:text-[#FAFAFA] transition-colors duration-200 font-body">
               {l.label}
             </a>
           ))}
+        </div>
+
+        {/* Desktop Actions */}
+        <div className="hidden md:flex items-center gap-2">
           <a 
             href="tel:9758109292"
-            className="flex items-center justify-center w-10 h-10 rounded-lg text-[#2563EB] dark:text-[#6366F1] hover:bg-[#F8FAFC] dark:hover:bg-[#1F2937] transition-all duration-300 border border-[#2563EB]/20 dark:border-[#6366F1]/20"
+            className="flex items-center justify-center w-9 h-9 text-[#64748B] dark:text-[#A1A1AA] hover:text-[#2563EB] dark:hover:text-[#6366F1] transition-colors duration-200"
             title="Call me"
           >
-            <Phone className="w-5 h-5" />
+            <Phone className="w-4 h-4" />
           </a>
           <button
             onClick={toggleTheme}
-            className="flex items-center justify-center w-10 h-10 rounded-lg text-[#2563EB] dark:text-[#6366F1] hover:bg-[#F8FAFC] dark:hover:bg-[#1F2937] transition-all duration-300 border border-[#2563EB]/20 dark:border-[#6366F1]/20"
+            className="flex items-center justify-center w-9 h-9 text-[#64748B] dark:text-[#A1A1AA] hover:text-[#2563EB] dark:hover:text-[#6366F1] transition-colors duration-200"
             title="Toggle theme"
           >
-            {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
         </div>
 
         {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="flex items-center justify-center w-10 h-10 rounded-lg text-[#2563EB] dark:text-[#6366F1] hover:bg-[#F8FAFC] dark:hover:bg-[#1F2937] transition-all duration-300"
+            className="flex items-center justify-center w-9 h-9 text-[#64748B] dark:text-[#A1A1AA] hover:text-[#2563EB] dark:hover:text-[#6366F1] transition-colors duration-200"
             title="Toggle theme"
           >
-            {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
-          <button onClick={() => setOpen(!open)} className="text-[#0F172A] dark:text-[#FAFAFA]">
+          <button onClick={() => setOpen(!open)} className="text-[#0F172A] dark:text-[#FAFAFA] hover:text-[#2563EB] dark:hover:text-[#6366F1] transition-colors duration-200">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -101,11 +105,11 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-white dark:bg-[#0A0A0A] border-t border-[#E2E8F0] dark:border-[#1F2937]"
+            className="md:hidden overflow-hidden bg-white dark:bg-[#0A0A0A] border-t border-[#E2E8F0]/40 dark:border-[#1F2937]/40"
           >
-            <div className="section-container py-4 flex flex-col gap-4">
+            <div className="section-container py-6 flex flex-col gap-4">
               {links.map((l) => (
-                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-sm text-[#64748B] dark:text-[#A1A1AA] hover:text-[#2563EB] dark:hover:text-[#6366F1] transition-colors font-medium">
+                <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="text-sm text-[#64748B] dark:text-[#A1A1AA] hover:text-[#0F172A] dark:hover:text-[#FAFAFA] transition-colors duration-200 font-body">
                   {l.label}
                 </a>
               ))}
