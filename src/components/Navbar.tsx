@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -33,6 +33,13 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <a 
+            href="tel:9758109292"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-primary hover:text-primary/80 transition-colors font-medium border border-primary/30 hover:border-primary/60"
+          >
+            <Phone className="w-4 h-4" />
+            9758109292
+          </a>
         </div>
 
         {/* Mobile toggle */}
@@ -56,6 +63,14 @@ const Navbar = () => {
                   {l.label}
                 </a>
               ))}
+              <a 
+                href="tel:9758109292"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-primary hover:text-primary/80 transition-colors font-medium border border-primary/30 hover:border-primary/60"
+              >
+                <Phone className="w-4 h-4" />
+                9758109292
+              </a>
             </div>
           </motion.div>
         )}
